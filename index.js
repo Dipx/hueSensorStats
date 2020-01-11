@@ -1,11 +1,9 @@
 let cron = require("node-cron");
 let sensorScrapper = require("./getsensortemp");
 
-// cron.schedule("*/59 * * * *", () => {
-//     sensorScrapper.startScraping();
-// });
-
-sensorScrapper.startScraping();
+cron.schedule("*/59 * * * *", () => {
+    sensorScrapper.startScraping();
+});
 
 function publish() {
    
